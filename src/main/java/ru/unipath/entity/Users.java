@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,11 +20,11 @@ public class User {
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    public User() {
+    public Users() {
 
     }
 
-    public User(String email, String password, String name) {
+    public Users(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -65,7 +65,7 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+        Users user = (Users) o;
         return Objects.equals(id, user.id);
     }
 

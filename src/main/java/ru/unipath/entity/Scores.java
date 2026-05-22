@@ -13,7 +13,7 @@ public class Scores {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User users;
+    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id", nullable = false)
@@ -29,7 +29,7 @@ public class Scores {
 
     }
 
-    public Scores(User users, Subjects subject, Integer score, Integer year) {
+    public Scores(Users users, Subjects subject, Integer score, Integer year) {
         this.users = users;
         this.subject = subject;
         this.score = score;
@@ -40,7 +40,7 @@ public class Scores {
         this.id = id;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 
@@ -60,7 +60,7 @@ public class Scores {
         return id;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 

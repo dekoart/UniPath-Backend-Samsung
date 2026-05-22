@@ -13,18 +13,18 @@ public class Favorites {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "program_id", nullable = false)
-    private Programs program;
+    @JoinColumn(name = "university_id", nullable = false)
+    private Universities university;
 
     public Favorites() {
 
     }
 
-    public Favorites(Programs program, User users) {
-        this.program = program;
+    public Favorites(Universities university, Users users) {
+        this.university = university;
         this.user = users;
     }
 
@@ -32,24 +32,24 @@ public class Favorites {
         this.id = id;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
-    public void setProgram(Programs program) {
-        this.program = program;
+    public void setUniversity(Universities university) {
+        this.university = university;
     }
 
     public Long getId() {
         return id;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public Programs getProgram() {
-        return program;
+    public Universities getUniversity() {
+        return university;
     }
 
     @Override
