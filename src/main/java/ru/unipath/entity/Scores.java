@@ -19,61 +19,48 @@ public class Scores {
     @JoinColumn(name = "subject_id", nullable = false)
     private Subjects subject;
 
-    @Column(name = "exam_score")
-    private Integer examScore;
-
-    @Column(name = "exam_year")
-    private Integer examYear;
+    @Column(name = "score")
+    private Integer score;
 
     public Scores() {
-
     }
 
-    public Scores(Users users, Subjects subject, Integer score, Integer year) {
-        this.user = users;
-        this.subject = subject;
-        this.examScore = score;
-        this.examYear = year;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUser(Users user) {
+    public Scores(Users user, Subjects subject, Integer score) {
         this.user = user;
-    }
-
-    public void setSubject(Subjects subject) {
         this.subject = subject;
-    }
-
-    public void setExamScore(Integer examScore) {
-        this.examScore = examScore;
-    }
-
-    public void setExamYear(Integer examYear) {
-        this.examYear = examYear;
+        this.score = score;
     }
 
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Users getUser() {
         return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public Subjects getSubject() {
         return subject;
     }
 
-    public Integer getExamScore() {
-        return examScore;
+    public void setSubject(Subjects subject) {
+        this.subject = subject;
     }
 
-    public Integer getExamYear() {
-        return examYear;
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     @Override
@@ -92,8 +79,7 @@ public class Scores {
     public String toString() {
         return "Scores{" +
                 "id=" + id +
-                ", year=" + examYear +
-                ", score=" + examScore +
+                ", score=" + score +
                 '}';
     }
 }
