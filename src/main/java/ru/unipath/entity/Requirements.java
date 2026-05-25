@@ -13,7 +13,7 @@ public class Requirements {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "program_id", nullable = false)
-    private Programs programs;
+    private Programs program;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id", nullable = false)
@@ -33,7 +33,7 @@ public class Requirements {
     }
 
     public Requirements(Programs programs, Subjects subjects, String subject, Integer min_score, Integer priority) {
-        this.programs = programs;
+        this.program = programs;
         this.subjects = subjects;
         this.subject = subject;
         this.min_score = min_score;
@@ -44,8 +44,8 @@ public class Requirements {
         this.id = id;
     }
 
-    public void setPrograms(Programs programs) {
-        this.programs = programs;
+    public void setProgram(Programs program) {
+        this.program = program;
     }
 
     public void setSubjects(Subjects subjects) {
@@ -68,8 +68,8 @@ public class Requirements {
         return id;
     }
 
-    public Programs getPrograms() {
-        return programs;
+    public Programs getProgram() {
+        return program;
     }
 
     public Subjects getSubjects() {

@@ -17,17 +17,13 @@ public class Users {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "name", nullable = false, length = 100)
-    private String name;
-
     public Users() {
 
     }
 
-    public Users(String email, String password, String name) {
+    public Users(String email, String password) {
         this.email = email;
         this.password = password;
-        this.name = name;
     }
 
     public void setId(Long id) {
@@ -42,10 +38,6 @@ public class Users {
         this.password = password;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Long getId() {
         return id;
     }
@@ -58,9 +50,6 @@ public class Users {
         return password;
     }
 
-    public String getName() {
-        return name;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,10 +65,6 @@ public class Users {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", email='" + email + '\'' + '}';
     }
 }

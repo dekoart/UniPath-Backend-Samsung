@@ -13,67 +13,67 @@ public class Scores {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private Users users;
+    private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id", nullable = false)
     private Subjects subject;
 
-    @Column(name = "score")
-    private Integer score;
+    @Column(name = "exam_score")
+    private Integer examScore;
 
-    @Column(name = "year")
-    private Integer year;
+    @Column(name = "exam_year")
+    private Integer examYear;
 
     public Scores() {
 
     }
 
     public Scores(Users users, Subjects subject, Integer score, Integer year) {
-        this.users = users;
+        this.user = users;
         this.subject = subject;
-        this.score = score;
-        this.year = year;
+        this.examScore = score;
+        this.examYear = year;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public void setSubject(Subjects subject) {
         this.subject = subject;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public void setExamScore(Integer examScore) {
+        this.examScore = examScore;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setExamYear(Integer examYear) {
+        this.examYear = examYear;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Users getUsers() {
-        return users;
+    public Users getUser() {
+        return user;
     }
 
     public Subjects getSubject() {
         return subject;
     }
 
-    public Integer getScore() {
-        return score;
+    public Integer getExamScore() {
+        return examScore;
     }
 
-    public Integer getYear() {
-        return year;
+    public Integer getExamYear() {
+        return examYear;
     }
 
     @Override
@@ -92,8 +92,8 @@ public class Scores {
     public String toString() {
         return "Scores{" +
                 "id=" + id +
-                ", year=" + year +
-                ", score=" + score +
+                ", year=" + examYear +
+                ", score=" + examScore +
                 '}';
     }
 }
