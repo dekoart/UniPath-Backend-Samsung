@@ -45,11 +45,11 @@ public class AuthService {
         return "Ошибка: неверный логин или пароль";
     }
 
-    private String createToken(Long userId) {
+    private String createToken(Long userId) { // создание токена
         return Jwts.builder()
-                .setSubject(String.valueOf(userId)) // записывает id
+                .setSubject(String.valueOf(userId))
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // срок жизни токена 24ч
-                .signWith(key) // запечатывает токен ключом
-                .compact(); // упаковывает
+                .signWith(key)
+                .compact();
     }
 }
