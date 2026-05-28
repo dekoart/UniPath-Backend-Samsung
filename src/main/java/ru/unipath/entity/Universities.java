@@ -2,6 +2,8 @@ package ru.unipath.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +16,7 @@ public class Universities {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY) // много вузов находятся в одном городе
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", nullable = false)
     private Cities city;
 
@@ -39,9 +41,10 @@ public class Universities {
     @Column(name = "has_exchange")
     private Boolean hasExchange = false;
 
+    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Programs> programs = new ArrayList<>();
 
     public Universities() {
-
     }
 
     public Universities(String name, Cities city_id, String address, String site, String logo, String type, Boolean has_dormitory, Boolean has_military, Boolean has_exchange) {
@@ -56,84 +59,92 @@ public class Universities {
         this.hasExchange = has_exchange;
     }
 
-    public void setHasExchange(Boolean hasExchange) {
-        this.hasExchange = hasExchange;
-    }
-
-    public void setHasMilitary(Boolean hasMilitary) {
-        this.hasMilitary = hasMilitary;
-    }
-
-    public void setHasDormitory(Boolean hasDormitory) {
-        this.hasDormitory = hasDormitory;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-    public void setSite(String site) {
-        this.site = site;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setCity(Cities city) {
-        this.city = city;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Cities getCity() {
         return city;
     }
 
+    public void setCity(Cities city) {
+        this.city = city;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getSite() {
         return site;
     }
 
+    public void setSite(String site) {
+        this.site = site;
+    }
+
     public String getLogo() {
         return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public String getType() {
         return type;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public Boolean getHasDormitory() {
         return hasDormitory;
+    }
+
+    public void setHasDormitory(Boolean hasDormitory) {
+        this.hasDormitory = hasDormitory;
     }
 
     public Boolean getHasMilitary() {
         return hasMilitary;
     }
 
+    public void setHasMilitary(Boolean hasMilitary) {
+        this.hasMilitary = hasMilitary;
+    }
+
     public Boolean getHasExchange() {
         return hasExchange;
+    }
+
+    public void setHasExchange(Boolean hasExchange) {
+        this.hasExchange = hasExchange;
+    }
+
+    public List<Programs> getPrograms() {
+        return programs;
+    }
+
+    public void setPrograms(List<Programs> programs) {
+        this.programs = programs;
     }
 
     @Override

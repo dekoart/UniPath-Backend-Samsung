@@ -33,6 +33,12 @@ public class Programs {
     @Column(name = "price")
     private Integer price;
 
+    @Column(name = "budget_score")
+    private Integer budgetScore;
+
+    @Column(name = "paid_score")
+    private Integer paidScore;
+
     public Programs() {
 
     }
@@ -111,6 +117,22 @@ public class Programs {
         this.price = price;
     }
 
+    public Integer getBudgetScore() {
+        return budgetScore;
+    }
+
+    public void setBudgetScore(Integer budgetScore) {
+        this.budgetScore = budgetScore;
+    }
+
+    public Integer getPaidScore() {
+        return paidScore;
+    }
+
+    public void setPaidScore(Integer paidScore) {
+        this.paidScore = paidScore;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -133,6 +155,8 @@ public class Programs {
                 ", form='" + form + '\'' +
                 ", budget=" + budget +
                 ", paid=" + paid +
+                ", budgetScore=" + budgetScore +
+                ", paidScore=" + paidScore +
                 '}';
     }
 }
