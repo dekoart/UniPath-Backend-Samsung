@@ -21,6 +21,7 @@ public class UniversityService {
         List<Universities> result = repository.findByFilters(
                 req.getCity(),
                 req.getName(),
+                req.getDirection(),
                 req.getType(),
                 req.getHasDormitory(),
                 req.getHasMilitary(),

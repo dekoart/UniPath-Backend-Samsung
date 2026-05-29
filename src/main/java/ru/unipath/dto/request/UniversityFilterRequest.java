@@ -4,9 +4,18 @@ public class UniversityFilterRequest {
     private String city;
     private String name;
     private String type;
+    private String direction;
     private Boolean hasDormitory;
     private Boolean hasMilitary;
     private Boolean hasExchange;
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
 
     public String getName() {
         return name;
