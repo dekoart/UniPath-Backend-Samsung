@@ -27,7 +27,7 @@ public class UniversityService {
                 req.getHasMilitary(),
                 req.getHasExchange()
         );
-        return result.stream() // конвертируем список сущностей в список ответов для фронта
+        return result.stream()
                 .map(this::toResponse)
                 .collect(Collectors.toList());
     }
@@ -59,7 +59,17 @@ public class UniversityService {
                 uni.getHasMilitary() != null ? uni.getHasMilitary() : false,
                 uni.getHasExchange() != null ? uni.getHasExchange() : false,
                 programsCount,
-                minBudgetScore
+                minBudgetScore,
+                uni.getPhone() != null ? uni.getPhone() : "",
+                uni.getEmail() != null ? uni.getEmail() : "",
+                uni.getWebsite() != null ? uni.getWebsite() : "",
+                uni.getBudgetPlaces(),
+                uni.getPaidPlaces(),
+                uni.getPricePerYear(),
+                uni.getAdmissionPhone(),
+                uni.getAdmissionEmail(),
+                uni.getAdmissionWebsite(),
+                uni.getAdmissionHours()
         );
     }
 }
