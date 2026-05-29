@@ -8,14 +8,18 @@ import java.util.List;
 
 public interface UniversitiesRepository extends JpaRepository<Universities, Long> {
 
-    @Query("SELECT u FROM Universities u WHERE " +
-            "(:city IS NULL OR u.city.name LIKE %:city%) AND " +
+    @Query(value = "SELECT u.* FROM universities u " +
+            "LEFT JOIN cities c ON u.city_id = c.id " +
+            "WHERE (:city IS NULL OR c.name ILIKE CONCAT('%', :city, '%')) AND " +
+            "(:name IS NULL OR u.name::text ILIKE CONCAT('%', :name, '%')) AND " +
             "(:type IS NULL OR u.type = :type) AND " +
-            "(:hasDormitory IS NULL OR u.hasDormitory = :hasDormitory) AND " +
-            "(:hasMilitary IS NULL OR u.hasMilitary = :hasMilitary) AND " +
-            "(:hasExchange IS NULL OR u.hasExchange = :hasExchange)")
+            "(:hasDormitory IS NULL OR u.has_dormitory = :hasDormitory) AND " +
+            "(:hasMilitary IS NULL OR u.has_military = :hasMilitary) AND " +
+            "(:hasExchange IS NULL OR u.has_exchange = :hasExchange)",
+            nativeQuery = true)
     List<Universities> findByFilters(
             @Param("city") String city,
+            @Param("name") String name,
             @Param("type") String type,
             @Param("hasDormitory") Boolean hasDormitory,
             @Param("hasMilitary") Boolean hasMilitary,

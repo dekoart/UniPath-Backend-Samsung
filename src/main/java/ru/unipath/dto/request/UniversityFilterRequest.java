@@ -2,10 +2,19 @@ package ru.unipath.dto.request;
 
 public class UniversityFilterRequest {
     private String city;
+    private String name;
     private String type;
     private Boolean hasDormitory;
     private Boolean hasMilitary;
     private Boolean hasExchange;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getCity() {
         return city;
